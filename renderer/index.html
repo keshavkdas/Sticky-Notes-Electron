@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sticky Note</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="note" class="note">
+      <div id="toolbar" class="toolbar">
+        <div class="drag-region"></div>
+        <div class="controls">
+          <button id="btnNew" title="New note">＋</button>
+          <button id="btnDelete" title="Delete">🗑</button>
+          <label class="opacity">
+            Opacity <input id="opacity" type="range" min="0.3" max="1" step="0.01"/>
+          </label>
+        </div>
+      </div>
+      <div id="content" class="content" contenteditable="true" spellcheck="true" placeholder="Type your note..."></div>
+      <div class="resize-tip">Drag edges to resize • Drag top bar to move</div>
+    </div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

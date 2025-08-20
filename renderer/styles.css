@@ -1,0 +1,70 @@
+:root {
+  --bg: rgba(255,255,255,0.18);
+  --border: rgba(255,255,255,0.35);
+  --text: #0f172a;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  -webkit-user-select: none;
+}
+
+.note {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  backdrop-filter: blur(12px) saturate(1.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.toolbar {
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+.drag-region {
+  -webkit-app-region: drag;
+  flex: 1;
+  height: 100%;
+}
+.controls { display: flex; gap: 6px; padding: 4px; }
+.controls button {
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.35);
+  border-radius: 10px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+.controls .opacity {
+  -webkit-app-region: no-drag;
+  font: 12px/1.2 system-ui, sans-serif;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.controls input[type="range"] { width: 120px; }
+
+.content {
+  -webkit-app-region: no-drag;
+  padding: 10px 12px 8px;
+  font: 14px/1.45 "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  outline: none;
+  overflow: auto;
+}
+.content:empty:before { content: attr(placeholder); opacity: 0.6; }
+
+.resize-tip {
+  -webkit-app-region: no-drag;
+  font: 11px system-ui;
+  opacity: 0.6;
+  padding: 6px 10px 10px;
+}

@@ -1,0 +1,39 @@
+{
+  "name": "sticky-notes",
+  "version": "1.0.0",
+  "description": "Sticky Notes Electron App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.yourname.stickynotes",
+    "productName": "Sticky Notes",
+    "win": {
+      "target": "portable",
+      "icon": "icon.ico"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "notesStore.js",
+      "renderer/**/*",
+      "package.json",
+      "icon.ico"
+    ],
+    "extraResources": [
+      {
+        "from": "renderer/tray.png",
+        "to": "tray.png"
+      }
+    ]
+  }
+}
